@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction - ML Models</title>
+    <meta name="description" content="Predict diabetes risk using Decision Tree and Logistic Regression machine learning models">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>Diabetes Prediction System</h1>
+                <p class="subtitle">Advanced ML-powered risk assessment using Decision Tree & Logistic Regression</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card form-card">
+                <h2>Patient Information</h2>
+                <p class="form-description">Enter patient data to predict diabetes risk</p>
+                
+                <form id="predictionForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="pregnancies">
+                                <span class="label-text">Pregnancies</span>
+                                <span class="label-hint">Number of times pregnant</span>
+                            </label>
+                            <input type="number" id="pregnancies" name="pregnancies" min="0" max="20" value="6" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="glucose">
+                                <span class="label-text">Glucose Level</span>
+                                <span class="label-hint">mg/dL</span>
+                            </label>
+                            <input type="number" id="glucose" name="glucose" min="0" max="300" step="0.1" value="148" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="blood_pressure">
+                                <span class="label-text">Blood Pressure</span>
+                                <span class="label-hint">mm Hg</span>
+                            </label>
+                            <input type="number" id="blood_pressure" name="blood_pressure" min="0" max="200" step="0.1" value="72" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skin_thickness">
+                                <span class="label-text">Skin Thickness</span>
+                                <span class="label-hint">mm</span>
+                            </label>
+                            <input type="number" id="skin_thickness" name="skin_thickness" min="0" max="100" step="0.1" value="35" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="insulin">
+                                <span class="label-text">Insulin Level</span>
+                                <span class="label-hint">mu U/ml</span>
+                            </label>
+                            <input type="number" id="insulin" name="insulin" min="0" max="900" step="0.1" value="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bmi">
+                                <span class="label-text">BMI</span>
+                                <span class="label-hint">Body Mass Index</span>
+                            </label>
+                            <input type="number" id="bmi" name="bmi" min="0" max="70" step="0.1" value="33.6" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diabetes_pedigree">
+                                <span class="label-text">Diabetes Pedigree</span>
+                                <span class="label-hint">Function value</span>
+                            </label>
+                            <input type="number" id="diabetes_pedigree" name="diabetes_pedigree" min="0" max="3" step="0.001" value="0.627" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">
+                                <span class="label-text">Age</span>
+                                <span class="label-hint">Years</span>
+                            </label>
+                            <input type="number" id="age" name="age" min="1" max="120" value="50" required>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary" data-model="both">
+                            Predict with Both Models
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-model="decision-tree">
+                            Decision Tree Only
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-model="logistic-regression">
+                            Logistic Regression Only
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2>Prediction Results</h2>
+                <div id="resultsContainer" class="results-container"></div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>ML Lab Assignment - Decision Tree & Logistic Regression Models</p>
+            <p class="footer-note">For educational purposes only. Not for medical diagnosis.</p>
+        </footer>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Analyzing patient data...</p>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
